@@ -1,0 +1,7 @@
+.colored-text {
+    font-size: 120px;
+    width: fit-content;
+    background: -webkit-linear-gradient(left,#924ce9 7%, #40befb, #9d4366 92%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
