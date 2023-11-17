@@ -3,7 +3,8 @@ import { type JSX } from 'solid-js/jsx-runtime'
 
 interface SingleElementInetrface {
   title: string
-  content: JSXElement
+  content: JSXElement,
+  titleClass: string
 }
 
 interface HorizontalTabProps {
@@ -51,7 +52,7 @@ export const HorizontalTab = (props: HorizontalTabProps): JSX.Element => {
                               setSelectedCompany(index)
                             }
                         }>
-                            {elements.title}
+                            <p>{elements.title}</p>
                         </div>
                   )
                 })
