@@ -1,4 +1,4 @@
-name: NodeJS with Grunt
+name: TEST CI/CD
 
 on: [push]
 jobs:
@@ -7,6 +7,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - run: echo Deploying code to the server
+      - run: echo ${{secrets.HOST}}
       - name: accessing the server
         uses: appleboy/ssh-action@v1.0.3
         with:
