@@ -6,7 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - run: echo ${{vars.PATH}}
+      - name: DUMP VAR
+        env:
+          PATH: ${{vars.PATH}}
+        run: |
+          echo $PATH
+      - run: echo PATH ${{vars.PATH}}
       - run: echo Deploying code to the server
       - run: echo ${{secrets.HOST}} ${{secrets.SSH_USER}}
       - name: accessing the server
