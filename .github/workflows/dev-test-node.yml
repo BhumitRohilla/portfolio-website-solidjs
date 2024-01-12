@@ -8,9 +8,9 @@ jobs:
     steps:
       - name: DUMP VAR
         env:
-          PATH: ${{vars.PATH}}
+          PATH: test
         run: |
-          echo $PATH
+          echo PATH $PATH
       - run: echo PATH ${{vars.PATH}}
       - run: echo Deploying code to the server
       - run: echo ${{secrets.HOST}} ${{secrets.SSH_USER}}
