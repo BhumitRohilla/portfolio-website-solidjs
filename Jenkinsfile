@@ -6,9 +6,9 @@ pipeline {
 
   }
   stages {
-    stage('Build') {
+    stage('Test') {
       steps {
-        sh 'yarn build'
+        sh 'Hello World'
       }
     }
 
