@@ -6,14 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: DUMP VAR
-        env:
-          PATH: test
-        run: |
-          echo PATH $PATH
-      - run: echo PATH ${{vars.PATH}}
       - run: echo Deploying code to the server
-      - run: echo ${{secrets.HOST}} ${{secrets.SSH_USER}}
       - name: accessing the server
         uses: appleboy/ssh-action@v1.0.3
         with:
