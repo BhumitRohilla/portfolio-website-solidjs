@@ -8,7 +8,13 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'Hello World'
+        echo 'Hello World'
+      }
+    }
+
+    stage('Test2') {
+      steps {
+        echo 'TEST@'
       }
     }
 
