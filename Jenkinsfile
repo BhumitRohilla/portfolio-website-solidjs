@@ -1,7 +1,7 @@
 pipeline {
     agent {
 		docker {
-			image 'jitesoft/node-yarn',
+			image 'jitesoft/node-yarn'
 		}
 	}
     stages {
