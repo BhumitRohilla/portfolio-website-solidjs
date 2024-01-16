@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+		docker {
+			image 'jitesoft/node-yarn',
+		}
+	}
     stages {
         stage('Git CheckOut') {
             steps {

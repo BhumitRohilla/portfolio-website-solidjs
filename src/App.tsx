@@ -1,7 +1,6 @@
 import { type JSX } from 'solid-js/jsx-runtime'
 import './App.css'
 import { Navbar } from '../src/components/navbar'
-import { changeTheme, store } from './store'
 import { TabElement } from './components/tab-element/tab-element'
 import { HorizontalTab } from './components/horizontal-tab'
 // import { ContactButton } from './components/contact-button'

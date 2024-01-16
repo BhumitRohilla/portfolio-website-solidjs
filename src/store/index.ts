@@ -13,14 +13,14 @@ const [store, setStore] = createStore({
 const changeTheme = (value: ChangeTheme) => {
     switch(value) {
         case ChangeTheme.black :{
-            setStore(store => ({
+            setStore(() => ({
                 backgroundColor: '#111111',
                 textColor: 'white'
             }))
             break;
         }
         case ChangeTheme.white :{
-            setStore(store => ({
+            setStore(() => ({
                 backgroundColor: 'white',
                 textColor: '#111111'
             }))
