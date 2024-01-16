@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'node --version'
+                    sh 'echo is this working'
                 }
             }
         }
