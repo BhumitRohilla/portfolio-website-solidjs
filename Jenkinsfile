@@ -1,22 +1,26 @@
 pipeline {
-  agent {
-    node {
-      label 'Test'
-    }
+	agent {
+		node {
+			label 'Test'
+		}
 
-  }
-  stages {
-    stage('Test') {
-      steps {
-        echo 'Hello World'
-      }
-    }
+	}
+	stages {
+		stage('Git CheckOut') {
+			steps {
+				script {
+					git branch: 'main',
+						credentialsId: 'd8bbaff0-c43b-40e6-9f5f-8d205d72a464',
+						url: 'https://github.com/BhumitRohilla/portfolio-website-solidjs.git'
 
-    stage('Test2') {
-      steps {
-        echo 'TEST@'
-      }
-    }
+				}
+			}
+		}
 
-  }
+		stage('Build') {
+			script {
+				sh 'node --version'
+			}
+		}
+	}
 }
