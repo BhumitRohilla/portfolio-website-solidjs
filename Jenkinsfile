@@ -29,7 +29,9 @@ pipeline {
         stage('Publish') {
             steps {
                 script {
+                    // Wrap the sshagent step with a block
                     sshagent(credentials: ['bhumitrohilla.in-server']) {
+                        // Inside the sshagent block, you need to have some steps
                         sh 'echo working'
                         sh 'tmux'
                         sh 'echo intumux'
@@ -37,6 +39,7 @@ pipeline {
                 }
             }
         }
+
 
     }
 }
