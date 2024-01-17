@@ -29,11 +29,11 @@ pipeline {
         stage('Publish') {
             steps {
                 script {
-                    sshagent(credentials: ['bhumitrohilla.in-server'])
-                    sh '''
-                        tmux a
-                        echo working
-                    '''
+                    sshagent(credentials: ['bhumitrohilla.in-server']) {
+                        sh 'echo working'
+                        sh 'tmux'
+                        sh 'echo intumux'
+                    }
                 }
             }
         }
