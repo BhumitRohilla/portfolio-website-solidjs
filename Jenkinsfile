@@ -1,7 +1,8 @@
 pipeline {
     agent {
-		docker {
-			image 'jitesoft/node-yarn'
+		dockerfile {
+			filename 'Dockerfile'
+            reuseNode true
 		}
 	}
     stages {
