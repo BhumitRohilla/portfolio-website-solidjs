@@ -2,24 +2,24 @@ import { type JSX } from 'solid-js/jsx-runtime'
 import './App.css'
 import { Navbar } from '../src/components/navbar'
 import { changeTheme, store } from './store'
-// import { HorizontalTab } from './components/horizontal-tab'
-// import { TabElement } from './components/tab-element/tab-element'
+import { TabElement } from './components/tab-element/tab-element'
+import { HorizontalTab } from './components/horizontal-tab'
 // import { ContactButton } from './components/contact-button'
 // import githubSvg from './assets/Contacts/github.svg'
 // import linkedinSvg from './assets/Contacts/linkedIn.svg'
 // import mailSvg from './assets/Contacts/mail.svg'
 
-const experience: Array<{ title: string, company: string, points: string[], startDate: Date, endDate: Date }> = [{
+const experience: Array<{ title: string, company: string, points: string[], startDate: Date, endDate: Date | null }> = [{
   title: 'Full Stack Web Developer',
   company: 'CodeQuotient',
   startDate: new Date('1/1/2023'),
-  endDate: new Date('1/4/2023'),
+  endDate: null,
   points: ['Test', 'Test2', 'Test3']
 }]
 const App = (): JSX.Element => {
   return (
-    <div class=' xl:px-28 h-full'>
-      <div class='text-[white] w-full h-full'>
+    <div class=' bg-[#111111]'>
+      <div class='text-[white] h-full h-[100vh] xl:px-28' id='container'>
         <section id='intro' class='text-[16px] min-h-[100vh]'>
           <Navbar class='xl:h-[123px]'/>
           <p class='text-xl lg:mt-48'>Hay, I'm</p>
@@ -33,19 +33,20 @@ const App = (): JSX.Element => {
           <div class='text-4xl mt-11'>Say hi
           </div>
         </section>
-        {/* <section id='experience' class='h-full'>
-          <p>EXPERIENCE</p>
+        <section id='experience' class='min-h-[100vh] p-3 pt-28'>
+          <p class='text-4xl pb-7'>EXPERIENCE</p>
           <HorizontalTab elements={
             experience.map(element => {
               return {
                 title: element.company,
-                content: <TabElement {...element}/>
+                titleClass: '',
+                content: <TabElement className ='px-9 pt-6' {...element}/>
               }
             })
           }
           />
         </section>
-        <div class='w-full h-[1px] bg-[#c6c6c6]'></div>
+        {/* <div class='w-full h-[1px] bg-[#c6c6c6]'></div> 
         <section id='projects'>
           <h3>FEATURED PROJECTS</h3>
         </section>
