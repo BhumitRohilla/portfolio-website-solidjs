@@ -5,15 +5,7 @@ pipeline {
 		}
 	}
     stages {
-        // stage('Git CheckOut') {
-        //     steps {
-        //         script {
-        //             git branch: 'main',
-        //                 credentialsId: 'github-token',
-        //                 url: 'https://github.com/BhumitRohilla/portfolio-website-solidjs.git'
-        //         }
-        //     }
-        // }
+
         stage('list') {
             steps {
                 script {
@@ -37,7 +29,7 @@ pipeline {
         stage('Publish') {
             steps {
                 script {
-                    sshagent(credentials: ['2176b82b-bf08-42e4-8c02-2f0f2f8735e2'])
+                    sshagent(credentials: ['bhumitrohilla.in-server'])
                     sh '''
                         tmux a
                         echo working
