@@ -6,16 +6,7 @@ pipeline {
 		}
 	}
     stages {
-
-        stage('list') {
-            steps {
-                script {
-                    sh 'apk add --no-cache openssh'
-                    sh 'ssh --version'
-                }
-            }
-        }
-
+        
         stage('Build') {
             steps {
                 script {
