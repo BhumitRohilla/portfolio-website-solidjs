@@ -26,5 +26,18 @@ pipeline {
                 }
             }
         }
+
+        stage('Publish') {
+            steps {
+                script {
+                    sshagent(credentials: ['2176b82b-bf08-42e4-8c02-2f0f2f8735e2'])
+                    sh '''
+                        tmux a
+                        echo working
+                    '''
+                }
+            }
+        }
+
     }
 }
