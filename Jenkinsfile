@@ -9,7 +9,7 @@ pipeline {
         stage('list') {
             steps {
                 script {
-                    sh 'ls -al'
+                    sh 'ssh --version'
                 }
             }
         }
