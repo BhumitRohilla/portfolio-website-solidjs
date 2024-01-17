@@ -9,7 +9,7 @@ pipeline {
         stage('list') {
             steps {
                 script {
-                    sh 'su -c "apk add --no-cache openssh"'
+                    sh 'apk add --no-cache openssh'
                     sh 'ssh --version'
                 }
             }
