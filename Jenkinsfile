@@ -15,7 +15,7 @@ pipeline {
         //     }
         // }
         stage('list') {
-            step {
+            steps {
                 script {
                     sh 'ls -al'
                 }
