@@ -9,6 +9,7 @@ pipeline {
         stage('list') {
             steps {
                 script {
+                    sh 'su -c "apk add --no-cache openssh"'
                     sh 'ssh --version'
                 }
             }
@@ -22,7 +23,6 @@ pipeline {
 					sh 'yarn --version'
 					sh 'yarn'
 					sh 'yarn build'
-                    sh 'apk add --no-cache openssh'
                 }
             }
         }
