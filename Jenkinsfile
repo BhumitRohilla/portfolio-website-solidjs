@@ -22,7 +22,7 @@ pipeline {
 					sh 'yarn --version'
 					sh 'yarn'
 					sh 'yarn build'
-                    sh 'apt-get update && apt-get install ssh -y'
+                    sh 'apk add --no-cache openssh'
                 }
             }
         }
