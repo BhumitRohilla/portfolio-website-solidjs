@@ -2,9 +2,7 @@ FROM node:21
 RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install npm -y
-RUN npm -g i n
-RUN n lts
-RUN npm -g i yarn
+RUN yarn --version
 RUN apt-get install openssh
 WORKDIR /home/node
 USER node
