@@ -1,7 +1,6 @@
 import { type JSX } from 'solid-js/jsx-runtime'
 import './App.css'
 import { Navbar } from '../src/components/navbar'
-import { changeTheme, store } from './store'
 import { TabElement } from './components/tab-element/tab-element'
 import { HorizontalTab } from './components/horizontal-tab'
 // import { ContactButton } from './components/contact-button'
@@ -28,7 +27,7 @@ const App = (): JSX.Element => {
             I'm a dedicated Full Stack Developer with a year of hands-on experience,
             and this is where my coding journey unfolds.
             From building web applications to honing my skills and tackling real-world challenges,
-            I'm on a mission to keep growing in the dynamic and ever-evolving world of programming.
+            I'm on a mission to keep growing in the dynamic and ever-evolving world of programming. 
           </p>
           <div class='text-4xl mt-11'>Say hi
           </div>
