@@ -14,6 +14,13 @@ pipeline {
         //         }
         //     }
         // }
+        stage('list') {
+            step {
+                script {
+                    sh 'ls -al'
+                }
+            }
+        }
 
         stage('Build') {
             steps {
