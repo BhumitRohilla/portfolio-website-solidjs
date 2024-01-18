@@ -28,8 +28,9 @@ pipeline {
                     usernameVariable: 'user',
                 )]) {
                     sh 'echo $pass'
-                    sh 'echo $user'
-                    sh 'sshpass -p $pass ssh $user'
+                    sh 'sshpass -p $pass $user'
+                    sh ''
+                    sh
                 }
             }
         }
