@@ -25,7 +25,8 @@ pipeline {
             steps {
                 sshagent(credentials: ['bhumitrohilla.in-server']) {
                     sh 'echo working'
-                    sh 'tmux'
+                    sh 'ssh ubuntu@bhumitrohilla.in'
+                    sh 'echo tmux'
                     sh 'echo intumux'
                 }
             }
