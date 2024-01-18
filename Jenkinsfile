@@ -21,13 +21,11 @@ pipeline {
 
         stage('Publish') {
             steps {
-                script {
+                sshagent(credentials: ['bhumitrohilla.in-server']) {
                     sh 'ssh ubuntu@bhumitrohilla.in'
                     sh 'tmux'
                     sh 'echo intumux'
                 }
-                // sshagent(credentials: ['bhumitrohilla.in-server']) {
-                // }
             }
         }
 
