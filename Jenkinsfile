@@ -6,7 +6,7 @@ pipeline {
 		}
 	}
     stages {
-        
+
         stage('Build') {
             steps {
                 script {
@@ -22,7 +22,7 @@ pipeline {
         stage('Publish') {
             steps {
                 sshagent(credentials: ['bhumitrohilla.in-server']) {
-                    sh 'echo working'
+                    sh 'ssh ubuntu@bhumitrohilla.in'
                     sh 'tmux'
                     sh 'echo intumux'
                 }
