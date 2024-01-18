@@ -3,7 +3,7 @@ pipeline {
 		dockerfile {
 			filename 'Dockerfile'
             reuseNode true
-            args '-u node:node'
+            additionalBuildArgs "--build-arg jenkinsUserId=\$(id -u jenkins)"
 		}
 	}
     stages {
