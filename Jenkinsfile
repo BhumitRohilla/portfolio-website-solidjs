@@ -19,6 +19,7 @@ pipeline {
             }
         }
 
+
         stage('Publish') {
             steps {
                 withCredentials([usernamePassword(
@@ -26,9 +27,9 @@ pipeline {
                     passwordVariable: 'pass',
                     usernameVariable: 'user',
                 )]) {
-                    sh 'echo $PASSWORD'
-                    sh 'echo #USERNAME'
-
+                    sh 'echo $pass'
+                    sh 'echo $user'
+                    sh 'sshpass -p $pass ssh $user'
                 }
             }
         }
