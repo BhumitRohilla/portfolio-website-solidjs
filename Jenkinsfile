@@ -22,7 +22,7 @@ pipeline {
         stage('Publish') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: '',
+                    credentialsId: 'bhumitrohilla.in-userpass',
                     passwordVariable: 'pass',
                     usernameVariable: 'user',
                 )]) {
