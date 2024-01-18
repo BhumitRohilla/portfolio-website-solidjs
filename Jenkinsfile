@@ -3,7 +3,7 @@ pipeline {
 		dockerfile {
 			filename 'Dockerfile'
             reuseNode true
-            args '-u root:root'
+            args '-u node:node'
 		}
 	}
     stages {
