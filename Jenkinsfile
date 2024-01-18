@@ -23,14 +23,10 @@ pipeline {
 
         stage('Publish') {
             steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'bhumitrohilla.in-userpass',
-                    passwordVariable: 'pass',
-                    usernameVariable: 'user',
-                )]) {
-                    sh 'sshpass -p $pass ssh ubuntu@bhumitrohilla.in'
-                    sh 'tmux'
+                sshagent(credentials: ['bhumitrohilla.in-server']) {
                     sh 'echo working'
+                    sh 'tmux'
+                    sh 'echo intumux'
                 }
             }
         }
