@@ -29,8 +29,6 @@ pipeline {
                 )]) {
                     sh 'echo $pass'
                     sh 'sshpass -p $pass $user'
-                    sh ''
-                    sh
                 }
             }
         }
