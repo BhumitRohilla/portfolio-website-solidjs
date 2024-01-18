@@ -27,8 +27,9 @@ pipeline {
                     passwordVariable: 'pass',
                     usernameVariable: 'user',
                 )]) {
-                    sh 'echo $pass'
                     sh 'sshpass -p $pass $user'
+                    sh 'tmux'
+                    sh 'echo working'
                 }
             }
         }
