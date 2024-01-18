@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sshagent(credentials: ['bhumitrohilla.in-server']) {
                     sh 'echo working'
-                    sh 'ssh ubuntu@bhumitrohilla.in'
+                    sh "ssh -o StrictHostKeyChecking=no -l ubuntu@bhumitrohilla.in 'whoami'"
                     sh 'echo tmux'
                     sh 'echo intumux'
                 }
