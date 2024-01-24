@@ -3,7 +3,6 @@ pipeline {
 		dockerfile {
 			filename 'Dockerfile'
             reuseNode true
-            additionalBuildArgs "--build-arg jenkinsUserId=\$(id -u jenkins)"
 		}
 	}
     stages {
@@ -24,10 +23,7 @@ pipeline {
         stage('Publish') {
             steps {
                 sshagent(credentials: ['bhumitrohilla.in-server']) {
-                    sh 'echo working'
-                    sh "ssh -o StrictHostKeyChecking=no -l ubuntu@bhumitrohilla.in 'whoami'"
-                    sh 'echo tmux'
-                    sh 'echo intumux'
+                    sh "ssh -o StrictHostKeyChecking=no -l ubuntu bhumitrohilla.in uname -a"
                 }
             }
         }
