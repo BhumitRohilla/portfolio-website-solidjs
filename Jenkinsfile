@@ -23,7 +23,11 @@ pipeline {
         stage('Publish') {
             steps {
                 sshagent(credentials: ['bhumitrohilla.in-server']) {
-                    sh "ssh -o StrictHostKeyChecking=no -l ubuntu bhumitrohilla.in uname -a"
+                    sh '''
+                        [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
+                        ssh-keyscan -t rsa,dsa bhumitrohilla.com >> ~/.ssh/known_hosts
+                        ssh ubuntu@bhumitrohilla.in
+                    '''
                 }
             }
         }
