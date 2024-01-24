@@ -2,7 +2,6 @@ pipeline {
     agent {
 		dockerfile {
 			filename 'Dockerfile'
-            reuseNode true
 		}
 	}
     stages {
@@ -23,11 +22,7 @@ pipeline {
         stage('Publish') {
             steps {
                 sshagent(credentials: ['bhumitrohilla.in-server']) {
-                    sh '''
-                        [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
-                        ssh-keyscan -t rsa,dsa bhumitrohilla.com >> ~/.ssh/known_hosts
-                        ssh ubuntu@bhumitrohilla.in
-                    '''
+                    sh "ssh -o StrictHostKeyChecking=no -l ubuntu bhumitrohilla.in uname -a"
                 }
             }
         }

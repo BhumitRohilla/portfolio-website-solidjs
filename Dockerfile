@@ -4,4 +4,5 @@ RUN apt-get upgrade -y
 RUN apt-get install npm -y
 RUN yarn --version
 WORKDIR /home/node
+USER node
 CMD [ "bin/bash" ]
