@@ -27,11 +27,11 @@ pipeline {
                     string(credentialsId: 'ubuntupass', variable: 'ROOT_PASS')]
                 ){
                         sh '''
-                            ssh -o StrictHostKeyChecking=off -i $SSH_KEY ubuntu@bhumitrohilla.in "rm -r jeff && mkdir jeff"
+                            ssh -o StrictHostKeyChecking=off -i $SSH_KEY ubuntu@bhumitrohilla.in "rm -r jeff || true && mkdir jeff"
                             scp -o StrictHostKeyChecking=off -i $SSH_KEY -r  ./dist/*  ubuntu@bhumitrohilla.in:/home/ubuntu/jeff/
                             ssh -o StrictHostKeyChecking=off -i $SSH_KEY ubuntu@bhumitrohilla.in "
                                 cd /var/www/ &&
-                                echo $ROOT_PASS || sudo -S rm -r bhumitrohilla.in &&
+                                echo $ROOT_PASS || sudo -S rm -r bhumitrohilla.in || true &&
                                 echo $ROOT_PASS || sudo -S mkdir bhumitrohilla.in &&
                                 echo $ROOT_PASS || sudo -S cp ~/jeff/* ./bhumitrohilla.in &&
                                 echo $ROOT_PASS || sudo -S nginx -s relaod
