@@ -24,7 +24,6 @@ pipeline {
             steps {
                 sshagent(credentials: ['bhumitrohilla.in-server']) {
                     sh "ssh -o StrictHostKeyChecking=no -l ubuntu bhumitrohilla.in uname -a"
-                    sh "ssh -o StrictHostKeyChecking=no -l ubuntu bhumitrohilla.in tmux a -t 0"
                     sh "ssh -o StrictHostKeyChecking=no -l ubuntu bhumitrohilla.in echo WORKING"
                 }
             }
