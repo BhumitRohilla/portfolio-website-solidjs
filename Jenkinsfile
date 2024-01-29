@@ -23,8 +23,9 @@ pipeline {
 
         stage('Publish') {
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-bhumitrohilla.in', keyFileVariable: 'SSH_KEY'),
-                    usernamePassword(credentialsId: 'ubuntupass', passwordVariable: 'ROOT_PASS')]
+                withCredentials([
+                    sshUserPrivateKey(credentialsId: 'ssh-bhumitrohilla.in', keyFileVariable: 'SSH_KEY'),
+                    string(credentialsId: 'ubuntupass', variable: 'ROOT_PASS')]
                 ){
                         sh '''
                             ssh -o StrictHostKeyChecking=off -i $SSH_KEY ubuntu@bhumitrohilla.in "rm -r jeff | mkdir jeff"
