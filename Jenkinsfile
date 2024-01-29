@@ -25,7 +25,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-bhumitrohilla.in', keyFileVariable: 'SSH_KEY'),
                     usernamePassword(credentialsId: 'ubuntupass', passwordVariable: 'ROOT_PASS')]
-                ) {
+                ){
                         sh '''
                             ssh -o StrictHostKeyChecking=off -i $SSH_KEY ubuntu@bhumitrohilla.in "rm -r jeff | mkdir jeff"
                             scp -o StrictHostKeyChecking=off -i $SSH_KEY -r  ./dist/*  ubuntu@bhumitrohilla.in:/home/ubuntu/jeff/
@@ -37,7 +37,6 @@ pipeline {
                                 echo $ROOT_PASS || sudo -S nginx -s relaod
                             "
                         '''
-                    }
                 }
             }
         }
