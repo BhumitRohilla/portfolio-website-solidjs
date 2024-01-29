@@ -25,7 +25,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-bhumitrohilla.in', keyFileVariable: 'SSH_KEY')]) {
                     sh '''
-                        scp -o StrictHostKeyChecking=off -i $SSH_KEY -r  ./build/*  ubuntu@bhumitrohilla.in:/home/ubuntu/jeff/*
+                        scp -o StrictHostKeyChecking=off -i $SSH_KEY -r  ./dist/*  ubuntu@bhumitrohilla.in:/home/ubuntu/jeff/*
                     '''
                 }
             }
