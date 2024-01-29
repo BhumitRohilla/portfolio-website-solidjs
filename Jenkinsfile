@@ -23,7 +23,7 @@ pipeline {
 
         stage('Publish') {
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'bhumitrohilla.in-server', keyFileVariable: 'SSH_KEY')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-bhumitrohilla.in', keyFileVariable: 'SSH_KEY')]) {
                     sh '''
                         scp -i $SSH_KEY ./test.txt ubuntu@bhumitrohilla.in:/home/ubuntu/
                     '''
