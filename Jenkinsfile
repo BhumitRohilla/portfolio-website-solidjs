@@ -25,7 +25,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-bhumitrohilla.in', keyFileVariable: 'SSH_KEY')]) {
                     sh '''
-                        scp -i $SSH_KEY ./test.txt ubuntu@bhumitrohilla.in:/home/ubuntu/
+                        scp -o StrictHostKeyChecking=no -l -i $SSH_KEY test.txt ubuntu@bhumitrohilla.in:/home/ubuntu
                     '''
                 }
             }
