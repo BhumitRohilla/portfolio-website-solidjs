@@ -10,12 +10,12 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // sh 'echo is this working'
-					// sh 'node --version'
-					// sh 'yarn --version'
-					// sh 'yarn'
-					// sh 'yarn build'
-                    sh 'touch test.txt'
+                    sh 'echo is this working'
+					sh 'node --version'
+					sh 'yarn --version'
+					sh 'yarn'
+					sh 'yarn build'
+                    // sh 'touch test.txt'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-bhumitrohilla.in', keyFileVariable: 'SSH_KEY')]) {
                     sh '''
-                        scp -o StrictHostKeyChecking=off -i $SSH_KEY  test.txt  ubuntu@bhumitrohilla.in:/home/ubuntu/
+                        scp -o StrictHostKeyChecking=off -i $SSH_KEY -r  ./build/*  ubuntu@bhumitrohilla.in:/home/ubuntu/jeff/*
                     '''
                 }
             }
