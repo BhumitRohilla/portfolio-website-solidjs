@@ -42,8 +42,8 @@ pipeline {
                                 cd /var/www/
                                 echo #ROOT_PASS | sudo -S rm -r bhumitrohilla.in || true 
                                 echo $ROOT_PASS | sudo -S mkdir bhumitrohilla.in || true
-                                echo $ROOT_PASS | sudo -S cp ~/jeff/* ./bhumitrohilla.in 
-                                echo $ROOT_PASS | sudo -S nginx -s relaod
+                                echo $ROOT_PASS | sudo -S cp -r ~/jeff/* ./bhumitrohilla.in 
+                                echo $ROOT_PASS | sudo -S nginx -s reload
                             "
                         '''
                 }
