@@ -14,6 +14,7 @@ pipeline {
 					sh 'node --version'
 					sh 'yarn --version'
 					sh 'yarn'
+                    sh 'rm -r dist || true'
 					sh 'yarn build'
                 }
             }
