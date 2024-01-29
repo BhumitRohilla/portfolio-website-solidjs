@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo TESTING WITH TEMP FILE'
-                    sh 'cd ./dist && touch test.txt'
+                    sh 'cd ./dist && touch test2.txt'
                 }
             }
         }
