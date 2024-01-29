@@ -7,18 +7,17 @@ pipeline {
 	}
     stages {
 
-        // stage('Build') {
-        //     steps {
-        //         script {
-        //             sh 'echo is this working'
-		// 			sh 'node --version'
-		// 			sh 'yarn --version'
-		// 			sh 'yarn'
-		// 			sh 'yarn build'
-        //             // sh 'touch test.txt'
-        //         }
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                script {
+                    sh 'echo is this working'
+					sh 'node --version'
+					sh 'yarn --version'
+					sh 'yarn'
+					sh 'yarn build'
+                }
+            }
+        }
 
 
         stage('Publish') {
@@ -28,7 +27,7 @@ pipeline {
                     string(credentialsId: 'ubuntupass', variable: 'ROOT_PASS')]
                 ){
                         sh '''
-                            ssh -o StrictHostKeyChecking=off -i $SSH_KEY ubuntu@bhumitrohilla.in "rm -r jeff | mkdir jeff"
+                            ssh -o StrictHostKeyChecking=off -i $SSH_KEY ubuntu@bhumitrohilla.in "rm -r jeff && mkdir jeff"
                             scp -o StrictHostKeyChecking=off -i $SSH_KEY -r  ./dist/*  ubuntu@bhumitrohilla.in:/home/ubuntu/jeff/
                             ssh -o StrictHostKeyChecking=off -i $SSH_KEY ubuntu@bhumitrohilla.in "
                                 cd /var/www/ &&
