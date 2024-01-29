@@ -7,24 +7,25 @@ pipeline {
 	}
     stages {
 
-        // stage('Build') {
-        //     steps {
-        //         script {
-        //             sh 'echo is this working'
-		// 			sh 'node --version'
-		// 			sh 'yarn --version'
-		// 			sh 'yarn'
-		// 			sh 'yarn build'
-        //         }
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                script {
+                    sh 'echo is this working'
+					sh 'node --version'
+					sh 'yarn --version'
+					sh 'yarn'
+					sh 'yarn build'
+                }
+            }
+        }
 
 
         stage('Publish') {
             steps {
-                sshagent(credentials: ['bhumitrohilla.in-server']) {
-                    sh "ssh -o StrictHostKeyChecking=no -l ubuntu bhumitrohilla.in uname -a"
-                    sh "ssh -o StrictHostKeyChecking=no -l ubuntu bhumitrohilla.in echo WORKING"
+                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key-bhumit-rohilla', keyFileVariable: 'SSH_KEY')]) {
+                    sh '''
+                        scp -i $SSH_KEY ./build ubuntu@bhumitrohilla.in:/home/ubuntu/
+                    '''
                 }
             }
         }
