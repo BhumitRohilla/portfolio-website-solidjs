@@ -32,9 +32,9 @@ pipeline {
                             scp -o StrictHostKeyChecking=off -i $SSH_KEY -r  ./dist/*  ubuntu@bhumitrohilla.in:/home/ubuntu/jeff/
                             ssh -o StrictHostKeyChecking=off -i $SSH_KEY ubuntu@bhumitrohilla.in "
                                 cd /var/www/
-                                echo #ROOT_PASS | sudo -S rm -r bhumitrohilla.in || true 
-                                echo $ROOT_PASS | sudo -S mkdir bhumitrohilla.in || true
-                                echo $ROOT_PASS | sudo -S cp -r ~/jeff/* ./bhumitrohilla.in 
+                                echo #ROOT_PASS | sudo -S rm -r beta.bhumitrohilla.in || true 
+                                echo $ROOT_PASS | sudo -S mkdir beta.bhumitrohilla.in || true
+                                echo $ROOT_PASS | sudo -S cp -r ~/jeff/* ./beta.bhumitrohilla.in 
                                 echo $ROOT_PASS | sudo -S nginx -s reload
                             "
                         '''
