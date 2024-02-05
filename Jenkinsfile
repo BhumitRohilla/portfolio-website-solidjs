@@ -12,10 +12,10 @@ pipeline {
                 script {
                     sh 'echo is this working'
 					sh 'node --version'
-					sh 'yarn --version'
-					sh 'yarn'
+					sh 'pnpm --version'
+					sh 'pnpm install'
                     sh 'rm -r dist || true'
-					sh 'yarn build'
+					sh 'pnpm run build'
                 }
             }
         }
