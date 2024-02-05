@@ -12,10 +12,9 @@ pipeline {
                 script {
                     sh 'echo is this working'
 					sh 'node --version'
-					sh 'pnpm --version'
-					sh 'pnpm install'
+					sh 'npm install'
                     sh 'rm -r dist || true'
-					sh 'pnpm run build'
+					sh 'npm run build'
                 }
             }
         }
