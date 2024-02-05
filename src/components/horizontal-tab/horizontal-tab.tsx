@@ -16,8 +16,7 @@ export const HorizontalTab = (props: HorizontalTabProps): JSX.Element => {
   const [selectedCompay, setSelectedCompany] = createSignal<number>(0)
   let selectedElementRef: HTMLDivElement | undefined
   console.log(selectedCompay)
-  console.log(elements)
-  let selectionHighlighter: HTMLDivElement
+  let selectionHighlighter: HTMLDivElement | undefined;
   onMount(() => {
     console.log('test')
     console.log(selectedElementRef)
@@ -33,7 +32,7 @@ export const HorizontalTab = (props: HorizontalTabProps): JSX.Element => {
         <>
             {/* eslint-disable @typescript-eslint/no-non-null-assertion */}
             <div class='flex relative justify-start gap-2'>
-                <div class='absolute top-0 w-[50px] bg-[#333232] rounded-md h-[20px] z-[5]' ref={selectionHighlighter!}></div>
+                <div class='absolute top-0 w-[50px] bg-[#333232] rounded-md h-[20px] z-[5]' ref={selectionHighlighter} />
             {
                 elements.map((elements, index) => {
                   return (
@@ -43,16 +42,18 @@ export const HorizontalTab = (props: HorizontalTabProps): JSX.Element => {
                               selectedElementRef = el
                             }
                           }}
-                          class='relative px-4 py-2 z-10 bg-transparent' onclick={
+                          class={`relative px-4 py-2 z-10 bg-transparent`} onclick={
                             (event) => {
                               console.log(Math.floor(event.target.getBoundingClientRect().left))
-                              selectionHighlighter.style.left = `${Math.floor(event.target.getBoundingClientRect().left - (event?.target?.parentElement?.getBoundingClientRect()?.left ?? 0))}px`
-                              selectionHighlighter.style.width = `${Math.floor(event.target.getBoundingClientRect().width)}px`
-                              selectionHighlighter.style.height = `${Math.floor(event.target.getBoundingClientRect().height)}px`
+                              if (selectionHighlighter) {
+                                selectionHighlighter.style.left = `${Math.floor(event.target.getBoundingClientRect().left - (event?.target?.parentElement?.getBoundingClientRect()?.left ?? 0))}px`
+                                selectionHighlighter.style.width = `${Math.floor(event.target.getBoundingClientRect().width)}px`
+                                selectionHighlighter.style.height = `${Math.floor(event.target.getBoundingClientRect().height)}px`
+                              }
                               setSelectedCompany(index)
                             }
                         }>
-                            <p>{elements.title}</p>
+                            {elements.title}
                         </div>
                   )
                 })

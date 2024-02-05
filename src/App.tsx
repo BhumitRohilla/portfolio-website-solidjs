@@ -8,13 +8,39 @@ import { HorizontalTab } from './components/horizontal-tab'
 // import linkedinSvg from './assets/Contacts/linkedIn.svg'
 // import mailSvg from './assets/Contacts/mail.svg'
 
-const experience: Array<{ title: string, company: string, points: string[], startDate: Date, endDate: Date | null }> = [{
-  title: 'Full Stack Web Developer',
-  company: 'CodeQuotient',
-  startDate: new Date('1/1/2023'),
-  endDate: null,
-  points: ['Test', 'Test2', 'Test3']
-}]
+const experience: Array<{ title: string, company: string, points: {title: string, details: string[]}[], startDate: Date, endDate: Date | null }> = [
+  {
+    title: 'Trainee',
+    company: 'CodeQuotient',
+    startDate: new Date('1 June 2023'),
+    endDate: new Date('31 Dec  2023'),
+    points: [
+      {
+        title: 'Express.js',
+        details: [
+          'Worked on different micro services'
+        ]
+      }
+    ]
+  }
+  ,
+  {
+    title: 'Software Development Engineer',
+    company: 'CodeQuotient',
+    startDate: new Date('1/1/2023'),
+    endDate: null,
+    points: [
+      {
+        title: 'Express.js',
+        details: [
+          'Worked on login micro service (session management for all other services)',
+          'Worked on electron created a app where user can give tests.',
+          'Worked on ci/cd for the app through github actions',
+        ]
+      }
+    ]
+  }
+]
 const App = (): JSX.Element => {
   return (
     <div class=' bg-[#111111]'>
@@ -27,7 +53,7 @@ const App = (): JSX.Element => {
             I'm a dedicated Full Stack Developer with a year of hands-on experience,
             and this is where my coding journey unfolds.
             From building web applications to honing my skills and tackling real-world challenges,
-            I'm on a mission to keep growing in the dynamic and ever-evolving world of programming. 
+            I'm on a mission to keep growing in the dynamic and ever-evolving world of programming.
           </p>
           <div class='text-4xl mt-11'>Say hi
           </div>
