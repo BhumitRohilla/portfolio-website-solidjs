@@ -20,7 +20,7 @@ pipeline {
 
         stage('Deply To Testing') {
             when {
-                brach 'testing'
+                branch 'testing'
             }
             steps {
                 withCredentials([
@@ -44,7 +44,7 @@ pipeline {
         }
         stage('Deply To Production') {
             when {
-                brach 'main'
+                branch 'main'
             }
             steps {
                 withCredentials([
