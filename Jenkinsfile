@@ -1,7 +1,7 @@
 pipeline {
     agent {
 		dockerfile {
-			filename 'Dockerfile'
+			filename 'Dockerfile-Jen'
             args '-v /etc/passwd:/etc/passwd'
 		}
 	}
@@ -11,9 +11,9 @@ pipeline {
                 script {
                     sh 'echo is this working'
 					sh 'node --version'
-					sh 'npm install'
+					sh 'pnpm install'
                     sh 'rm -r dist || true'
-					sh 'npm run build'
+					sh 'pnpm run build'
                 }
             }
         }
