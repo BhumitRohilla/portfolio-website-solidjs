@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 interface TabElementProps {
   title: string
   company: string
-  points: string[]
+  points: {title: string, details: string[]}[]
   startDate: Date
   endDate: Date | null,
   className: string,
@@ -30,7 +30,17 @@ export const TabElement = (props: TabElementProps): JSX.Element => {
             <div class='text-[20px] pb-6 text-[#6cace4]'>{company}</div>
             <div>
                 <ol>
-                    {points.map(element => <li class='text-[20px] pb-6'>- {element}</li>)}
+                    {points.map((element) => {
+                      return (
+                        <>
+                          <li class='text-[20px] pb-6'><h3 class='font-bold'>- {element.title}</h3> <br/>
+                            <ol>
+                              {element.details.map(element => <li class='ml-5'>{element}</li>)}
+                            </ol>
+                          </li>
+                        </>
+                      )
+                    })}
                 </ol>
             </div>
         </div>
