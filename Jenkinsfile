@@ -44,7 +44,7 @@ pipeline {
         }
         stage('Deply To Production') {
             when {
-                branch 'main'
+                branch 'production'
             }
             steps {
                 withCredentials([
