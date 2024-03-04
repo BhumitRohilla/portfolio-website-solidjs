@@ -1,6 +1,6 @@
-FROM node:20
-RUN apt-get update -y
-RUN apt-get upgrade -y
+FROM node AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 WORKDIR /home/node
-USER node
 CMD [ "bin/bash" ]
