@@ -1,6 +1,6 @@
 FROM node AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
+ENV npm_config_cache='npm-cache'
+ENV HOME='.'
 RUN corepack enable
 WORKDIR /home/node
 CMD [ "bin/bash" ]
