@@ -74,7 +74,7 @@ pipeline {
         }
         failure {
             echo 'Build Completed With Error'
-            mail bcc:'', body: "<b>Portfolio We"
+            mail bcc:'', body: "<b>Portfolio Website Build Failed</b>\n<br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER}<br> ", charset: 'UTF-8', from: 'bhumit73rohilla@gmail.com', mimeType: 'text/html', subject: "Fail Build FOR ${env.JOB_NAME}", to: "bhumit73rohilla@gmail.com";
         }
     }
 }
