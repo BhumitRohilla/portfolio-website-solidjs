@@ -70,7 +70,11 @@ pipeline {
     post {
         success {
             echo 'Build Completed Successfully'
-            mail bcc:'', body: "<b>Portfolio Website</b>\n<br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER}<br> ", charset: 'UTF-8', from: '', mimeType: 'text/html', subject: "Success Build FOR ${env.JOB_NAME}", to: "bhumit73rohilla@gmail.com";
+            mail bcc:'', body: "<b>Portfolio Website</b>\n<br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER}<br> ", charset: 'UTF-8', from: 'bhumit73rohilla@gmail.com', mimeType: 'text/html', subject: "Success Build FOR ${env.JOB_NAME}", to: "bhumit73rohilla@gmail.com";
+        }
+        failure {
+            echo 'Build Completed With Error'
+            mail bcc:'', body: "<b>Portfolio We"
         }
     }
 }
