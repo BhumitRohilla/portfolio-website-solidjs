@@ -10,10 +10,10 @@ pipeline {
             steps {
                 script {
                     sh 'echo is this working'
-					sh 'npm --version'
-					sh 'npm install'
+					sh 'yarn --version'
+					sh 'yarn'
                     sh 'rm -r dist || true'
-					sh 'npm run build'
+					sh 'yarn build'
                 }
             }
         }

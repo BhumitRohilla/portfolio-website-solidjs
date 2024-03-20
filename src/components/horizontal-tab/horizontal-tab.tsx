@@ -32,7 +32,7 @@ export const HorizontalTab = (props: HorizontalTabProps): JSX.Element => {
         <>
             {/* eslint-disable @typescript-eslint/no-non-null-assertion */}
             <div class='flex relative justify-start gap-2'>
-                <div class='absolute top-0 w-[50px] bg-[#333232] rounded-md h-[20px] z-[5]' ref={selectionHighlighter} />
+                <div class='absolute top-0 w-[50px] bg-[#333232] rounded-md h-[20px] z-[5] transition-all duration-300' ref={selectionHighlighter} />
             {
                 elements.map((elements, index) => {
                   return (
